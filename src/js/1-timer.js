@@ -80,20 +80,18 @@ function padStartZero(value) {
 //timer execution
 
 btnStart.addEventListener('click', () => {
-  const countdownInt = setInterval(() => {
-    btnStart.disabled = true;
-    input.disabled = true;
-    timerId = setInterval(() => {
-      const currDate = new Date();
-      const resDate = selectedDate - currDate;
-      if (resDate <= 0) {
-        clearInterval(timerId);
-        updateTimer(convertMs(0));
-        input.disabled = false;
-        return;
-      }
-      updateTimer(convertMs(resDate));
-    });
+  btnStart.disabled = true;
+  input.disabled = true;
+  timerId = setInterval(() => {
+    const currDate = new Date();
+    const resDate = selectedDate - currDate;
+    if (resDate <= 0) {
+      clearInterval(timerId);
+      updateTimer(convertMs(0));
+      input.disabled = false;
+      return;
+    }
+    updateTimer(convertMs(resDate));
   }, 1000);
 });
 
